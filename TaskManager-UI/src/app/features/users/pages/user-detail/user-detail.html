@@ -1,0 +1,27 @@
+<h2>User Detail</h2>
+
+@if (user()) {
+  <!-- View mode -->
+  @if (!editMode()) {
+    <p><b>Name:</b> {{ user().name }}</p>
+    <p><b>Email:</b> {{ user().email }}</p>
+    <button class="btn btn-primary me-2" (click)="toggleEdit()">Edit</button>
+    <button class="btn btn-secondary" (click)="goToIndex()">Back</button>
+  } @else {
+    <!-- Edit mode -->
+    <form [formGroup]="userForm">
+      <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" formControlName="name">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" formControlName="email">
+      </div>
+
+      <button type="button" class="btn btn-success me-2" (click)="saveChanges()">Save</button>
+      <button type="button" class="btn btn-secondary" (click)="toggleEdit()">Cancel</button>
+    </form>
+  }
+}

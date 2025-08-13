@@ -1,0 +1,20 @@
+<h2>User Detail</h2>
+
+@if (product()) {
+  <!-- View mode -->
+  @if (!editMode()) {
+    <p><b>Name:</b> {{ product().name }}</p>
+    <button class="btn btn-primary" (click)="toggleEdit()">Edit</button>
+  } @else {
+    <!-- Edit mode -->
+    <form [formGroup]="productForm">
+      <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" formControlName="name">
+      </div>
+
+      <button type="button" class="btn btn-success me-2" (click)="saveChanges()">Save</button>
+      <button type="button" class="btn btn-secondary" (click)="toggleEdit()">Cancel</button>
+    </form>
+  }
+}
