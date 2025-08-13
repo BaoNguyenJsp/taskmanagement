@@ -29,7 +29,7 @@ public static class QueryBuilder
 
                 var propertyStr = Expression.Call(property, toStringMethod);
                 var constantStr = Expression.Call(constant, toStringMethod);
-                var containsExp = Expression.Call(propertyStr, containsMethod, constantStr);
+                var containsExp = Expression.Call(property.Type != typeof(string) ? propertyStr : property, containsMethod, constantStr);
 
                 body = Expression.AndAlso(body, containsExp);
             }

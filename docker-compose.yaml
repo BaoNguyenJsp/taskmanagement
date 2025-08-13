@@ -3,23 +3,16 @@ version: '3.8'
 services:
   mysql:
     image: mysql:8.0
-    container_name: mysql-container
+    container_name: mysql-taskmanagement
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: yourpassword
       MYSQL_DATABASE: taskmanagement
-      MYSQL_USER: root
-      MYSQL_PASSWORD: yourpassword
     ports:
       - "3307:3306"
+    command: --default-authentication-plugin=mysql_native_password
     volumes:
-      - mysql-data:/var/lib/mysql
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      interval: 10s
-      timeout: 5s
-      retries: 3
+      - mysql_data:/var/lib/mysql
 
 volumes:
-  mysql-data:
-    name: mysql-data
+  mysql_data:
