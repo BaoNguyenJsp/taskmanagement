@@ -1,28 +1,75 @@
-# Angular specific
-/dist/
-/out-tsc/
-/tmp/
-/coverage/
-/e2e/test-output/
-/.angular/
-.angular/
-
-# Node modules and dependency files
-/node_modules/
-/package-lock.json
-/yarn.lock
-
-# Environment files
-/.env
-
-# Angular CLI and build artefacts
-/.angular-cli.json
-/.ng/
-
-# TypeScript cache
-*.tsbuildinfo
+#############################################
+# Global ignores
+#############################################
+# OS-specific
+.DS_Store
+Thumbs.db
 
 # Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+.log
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+#############################################
+# .NET (C#, ASP.NET Core) ignores
+#############################################
+# Build results
+bin
+obj
+out
+Debug
+Release
+
+# Visual Studio files
+.vs
+.user
+.suo
+.userosscache
+.sln.docstates
+
+# NuGet packages
+.nupkg
+.snupkg
+packages
+!packagesbuild
+.nuget.props
+.nuget.targets
+
+# Others
+project.lock.json
+project.fragment.lock.json
+artifacts
+
+#############################################
+# Angular ignores
+#############################################
+# Node modules
+node_modules
+
+# Build output
+dist
+build
+tmp
+temp
+
+# Angular specific cache
+.angular
+.angularcache
+
+#############################################
+# IDE  Editor ignores
+#############################################
+# Visual Studio Code
+.vscode
+!.vscodesettings.json
+!.vscodetasks.json
+!.vscodelaunch.json
+!.vscodeextensions.json
+
+# JetBrains Rider  IntelliJ
+.idea
+
+# Others
+.swp
+.swo
